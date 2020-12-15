@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                   stage('build & test') {
-                    sh '.gradlew clean build'
+                    sh 'gradle clean build'
                   }
                   stage('sonar'){
                     // corresponde a lo que se configuro en gloabal tool configuration
