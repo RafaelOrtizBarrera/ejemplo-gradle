@@ -6,10 +6,15 @@ pipeline {
             steps {
                 script {
                   stage('build & test') {
-
+                    sh '.gradlew clean build'
                   }
                   stage('sonar'){
-
+                    // corresponde a lo que se configuro en gloabal tool configuration
+                    def scannerHome = tool 'sonar';
+                    // nombre en configuraciones generales
+                    withSonarQubeEnv('sonar-local') { 
+                      sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build"
+                    }
                   }
                   stage('run'){
 
