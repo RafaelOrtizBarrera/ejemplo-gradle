@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Pipeline') {
             steps {
                 script {
                   stage('build & test') {
