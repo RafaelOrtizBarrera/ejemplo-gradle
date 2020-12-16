@@ -17,7 +17,7 @@ pipeline {
                     }
                   }
                   stage('run'){
-                    sh 'nohup gradle bootRun &'
+                    sh 'nohup bash gradlew bootRun &'
                   }
                   stage('test api'){
                     echo 'Esperando a que inicie el servidor'
