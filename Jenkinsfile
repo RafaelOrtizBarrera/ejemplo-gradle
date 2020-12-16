@@ -18,6 +18,7 @@ pipeline {
                   }
                   stage('run'){
                     withEnv(['JENKINS_NODE_COOKIE=dontkillme']) {
+                      sh 'sdk use java 8.0.275-amzn'
                       sh """
                         nohup bash java -jar build/DevOpsUsach2020-0.0.1.jar &
                       """
