@@ -19,7 +19,7 @@ pipeline {
                   stage('run'){
                     withEnv(['JENKINS_NODE_COOKIE=dontkillme']) {
                       sh """
-                        nohup java -jar build/DevOpsUsach2020-0.0.1.jar &
+                        nohup bash java -jar build/DevOpsUsach2020-0.0.1.jar &
                       """
                     }
                   }
