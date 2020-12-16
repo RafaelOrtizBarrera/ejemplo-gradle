@@ -7,6 +7,7 @@ pipeline {
             steps {
                 script {
                   def script =  (params.TIPO_PIPELINE == 'maven') ? 'maven.groovy' :  'gradle.groovy';
+                  echo 'pipeline seleccionado ' + script;
                   def tipoPipeline = load script;
                   tipoPipeline.call();
                 }
