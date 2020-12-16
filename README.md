@@ -1,4 +1,4 @@
-# Getting Started up
+# Getting Started upup
 
 ### Compile Code
 * gradle build
