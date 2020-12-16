@@ -17,7 +17,11 @@ pipeline {
                     }
                   }
                   stage('run'){
-                    sh 'nohup bash gradlew bootRun &'
+                    withEnv(['JENKINS_NODE_COOKIE=dontkillme']) {
+                      sh """
+                        nohup java -jar build/DevOpsUsach2020-0.0.1.jar &
+                      """
+                    }
                   }
                   stage('test api'){
                     echo 'Esperando a que inicie el servidor'
