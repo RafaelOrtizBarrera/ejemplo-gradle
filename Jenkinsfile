@@ -6,7 +6,8 @@ pipeline {
         stage('Pipeline') {
             steps {
                 script {
-                  def tipoPipeline =  (params.TIPO_PIPELINE == 'maven') ? load 'maven.groovy' : load 'gradle.groovy';
+                  def script =  (params.TIPO_PIPELINE == 'maven') ? 'maven.groovy' :  'gradle.groovy';
+                  def tipoPipeline = load script;
                   tipoPipeline.call();
                 }
             }
