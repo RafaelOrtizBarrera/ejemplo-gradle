@@ -14,4 +14,13 @@ pipeline {
             }
         }
     }
+
+    post {
+      success {
+        slackSend color: 'good' message: 'Rafael Ortiz ' + ' ' + env.JOB_NAME + ' ' + params.TIPO_PIPELINE + ' ejecución exitosa'
+      }
+      failure {
+        slackSend color: 'danger' message: 'Rafael Ortiz ' + ' ' + env.JOB_NAME + ' ' + params.TIPO_PIPELINE + ' ejecución fallida en stage ' + env.STAGE_NAME
+      }
+    }
 }
